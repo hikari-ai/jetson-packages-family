@@ -1,15 +1,16 @@
 version: 2.1
 
 parameters:
-  registry:
+  ghcr_registry:
     type: string
     default: ghcr.io
-  username:
+  ghcr_username:
     type: string
     default: hikari-ai
-  extra_build_args:
+  heroku_registry:
     type: string
-    default: ""
+    default: registry.heroku.com
+
   image:
     type: string
     default: jetson-packages-family
@@ -17,15 +18,8 @@ parameters:
     type: string
     default: latest
 
-  ## build_all:
-  ## build_dev:
-  ## build_master:
 jobs:
   build-and-push:
-    ##    branches:
-    ##      only:
-    ##        - master
-    ##        - hugo-docs
     machine: true
     steps:
       - checkout
@@ -33,42 +27,24 @@ jobs:
           name: Synchronize git submodule
           command: git submodule update --init --recursive
       - run:
-          name: Login to GitHub Container Registry
-          command: docker login ghcr.io --username <<pipeline.parameters.username>> -p $DOCKER_PASSWORD
+          name: Login to Container Registries
+          command: |
+            docker login <<pipeline.parameters.ghcr_registry>> -u <<pipeline.parameters.ghcr_username>> -p $DOCKER_PASSWORD
+            docker login <<pipeline.parameters.heroku_registry>> -u $HEROKU_USERNAME -p $HEROKU_TOKEN
       - run:
-          name: Build image
-          command: docker build -t <<pipeline.parameters.registry>>/<<pipeline.parameters.username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>> .
+          name: Build and Tag Images
+          command: |
+            docker build -t base .
+            docker tag base <<pipeline.parameters.ghcr_registry>>/<<pipeline.parameters.ghcr_username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
+            docker tag base <<pipeline.parameters.heroku_registry>>/$HEROKU_USERNAME/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
       - run:
-          name: Publish image
-          command: docker push <<pipeline.parameters.registry>>/<<pipeline.parameters.username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
+          name: Push Images
+          command: |
+            docker push <<pipeline.parameters.ghcr_registry>>/<<pipeline.parameters.ghcr_username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
+            docker push <<pipeline.parameters.heroku_registry>>/$HEROKU_USERNAME/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
 
 workflows:
   build-and-publish-image:
     jobs:
       - build-and-push:
           context: secrets
-
-  ##  build_all:
-  ##    jobs:
-  ##      - build_all:
-  ##          filters:
-  ##            branches:
-  ##              ignore:
-  ##                - develop
-  ##                - master
-  ##
-  ##  build_dev:
-  ##    jobs:
-  ##      - build_dev:
-  ##          filters:
-  ##            branches:
-  ##              only:
-  ##                - develop
-  ##
-  ##  build_master:
-  ##    jobs:
-  ##      - build_master:
-  ##          filters:
-  ##            branches:
-  ##              only:
-  ##                - master
