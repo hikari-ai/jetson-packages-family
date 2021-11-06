@@ -1,4 +1,4 @@
-baseURL = "https://example.com/"
+baseURL = "/"
 title = "Compose Docs"
 theme = "compose"
 enableRobotsTXT = true
