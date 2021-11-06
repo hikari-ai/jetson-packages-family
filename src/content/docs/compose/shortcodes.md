@@ -1,9 +1,9 @@
-+++
-description = "Use hugo shortcodes to quickly compose your documentation pages."
-title = "Shortcodes"
-weight = 5
+---
+description: "Use hugo shortcodes to quickly compose your documentation pages."
+title: "Shortcodes"
+weight: 5
+---
 
-+++
 Instead of writing all your site pages from scratch, Hugo lets you define and use [shortcodes](https://gohugo.io/content-management/shortcodes/).
 
 Why shortcodes? While markdown is sufficient to produce simple pages, it's insufficient where complex page structures are needed. Thusly, whenever we need special styling, shortcodes compliment the shortcomings of markdown.
@@ -22,9 +22,11 @@ Takes positional modifiers
 
 ```markdown
 ...
-  {{</* block "modifiers" */>}}
+{{</* block "modifiers" */>}}
+
   <!-- Nest columns or content  -->
-  {{</* /block */>}}
+
+{{</* /block */>}}
 ...
 ```
 
@@ -35,9 +37,11 @@ It takes positional parameters
 **Example**
 
 ```markdown
-  {{</* column "mt-2 mb-2" */>}}
+{{</* column "mt-2 mb-2" */>}}
+
   <!-- applied margin top and margin bottom modifiers -->
-  {{</* /column */>}}
+
+{{</* /column */>}}
 ```
 
 ### Youtube Video
@@ -47,7 +51,8 @@ This allows you to embed a youtube video in you content. You would achieve that 
 **Syntax**
 
 ```markdown
-  {{</* youtube "25QyCxVkXwQ" */>}}
+{{</* youtube "25QyCxVkXwQ" */>}}
+
   <!-- Use the youtube video id -->
 ```
 
@@ -61,6 +66,7 @@ This allows you to embed a youtube video in you content. You would achieve that 
 
 ```markdown
 <!-- or use full url -->
+
 {{</* youtube "https://www.youtube.com/watch?v=MmG2ah5Df4g" */>}}
 ```
 
@@ -72,16 +78,16 @@ This allows you to embed a youtube video in you content. You would achieve that 
 
 This adds a styled link (styled like a button). It takes two no-optional parameters:
 
-| PARAMETER | PURPOSE | OPTIONAL |
-| :--- | :--- | :--- |
-| label | button text | no |
-| url | button link | no |
-| modifier | styling classes | yes |
+| PARAMETER | PURPOSE         | OPTIONAL |
+| :-------- | :-------------- | :------- |
+| label     | button text     | no       |
+| url       | button link     | no       |
+| modifier  | styling classes | yes      |
 
 **Example**
 
 ```markdown
-  {{</* button "/" "doe nu mee" */>}}
+{{</* button "/" "doe nu mee" */>}}
 ```
 
 ### Picture
@@ -120,8 +126,7 @@ The 2nd parameter is optional. It's a _double-collon-separated list_ (`::`) of y
 
 {{< tip >}}
 
-> For legibility, you may include a space after the delimiters `,` & `::`
-> {{< /tip  >}}
+> For legibility, you may include a space after the delimiters `,` & `::` > {{< /tip  >}}
 
 **Result**
 
@@ -137,7 +142,7 @@ This tooltips may take either of the following forms:
 
 ```markdown
 {{</* tip */>}}
-Something of __interest__ you want to highlight
+Something of **interest** you want to highlight
 {{</* /tip */>}}
 ```
 
@@ -153,7 +158,7 @@ Something of **interest** you want to highlight
 
 ```markdown
 {{</* tip "warning" */>}}
-Something of __interest__ the user should be careful about
+Something of **interest** the user should be careful about
 {{</* /tip */>}}
 ```
 

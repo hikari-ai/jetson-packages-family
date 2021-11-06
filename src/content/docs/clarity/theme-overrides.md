@@ -1,6 +1,6 @@
-+++
-title = "Theme Overrides"
-+++
+---
+title: "Theme Overrides"
+---
 
 ### Custom CSS and JS
 
@@ -18,7 +18,7 @@ customJS = ["js/custom.js"] # Include custom JS files
 ...
 ```
 
-> __Pro Tip__: You can change the theme colors via the [this variable's SASS file](https://github.com/chipzoller/hugo-clarity/blob/master/assets/sass/_variables.sass)
+> **Pro Tip**: You can change the theme colors via the [this variable's SASS file](https://github.com/chipzoller/hugo-clarity/blob/master/assets/sass/_variables.sass)
 
 ### Hooks
 

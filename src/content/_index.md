@@ -8,6 +8,7 @@ fileLink = "content/projects.csv"
 title = "Projects"
 
 +++
+
 {{< block "grid-2" >}}
 {{< column >}}
 

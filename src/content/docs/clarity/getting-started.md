@@ -5,7 +5,7 @@ weight: 11
 
 ## Prerequisites
 
-Firstly, __ensure you have installed the [extended version of Hugo](https://github.com/gohugoio/hugo/releases)__. See installation steps from [Hugo's official docs](https://gohugo.io/getting-started/installing/).
+Firstly, **ensure you have installed the [extended version of Hugo](https://github.com/gohugoio/hugo/releases)**. See installation steps from [Hugo's official docs](https://gohugo.io/getting-started/installing/).
 
 ## Getting up and running
 
@@ -54,6 +54,7 @@ git clone https://github.com/chipzoller/hugo-clarity.git clarity
 cd clarity/exampleSite/
 hugo mod init my-site
 ```
+
 Open config.toml file in your code editor, replace `theme = "hugo-clarity"` with `theme = ["github.com/chipzoller/hugo-clarity"]` or just `theme = "github.com/chipzoller/hugo-clarity"`.
 
 Hurray you can now run
