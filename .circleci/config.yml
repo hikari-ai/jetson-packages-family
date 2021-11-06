@@ -49,13 +49,27 @@ jobs:
           command: |
             docker push <<pipeline.parameters.ghcr_registry>>/<<pipeline.parameters.ghcr_username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
             docker push <<pipeline.parameters.heroku_registry>>/<<pipeline.parameters.image>>/<<pipeline.parameters.heroku_release_type>>
+
+  release:
+    docker:
+      - image: alpine
+    steps:
       - run:
-          name: Deploy
+          name: Heroku Release
           command: |
-            apt install heroku
+            apk add curl
+            curl https://cli-assets.heroku.com/install.sh | sh
+            cat > $HOME/.netrc << EOF
+            machine api.heroku.com
+              login $HEROKU_USERNAME
+              password $HEROKU_TOKEN
+            EOF
+            heroku container:release <<pipeline.parameters.heroku_release_type>> -a <<pipeline.parameters.image>>
 
 workflows:
   build-and-publish-image:
     jobs:
       - build-and-push:
+          context: secrets
+      - release:
           context: secrets
