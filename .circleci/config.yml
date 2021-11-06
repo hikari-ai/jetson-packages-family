@@ -3,6 +3,17 @@ version: 2.1
 orbs:
   docker: circleci/docker@2.0.0
 
+branches:
+  only:
+    - master
+    - hugo-docs
+
+contexts:
+  - secrets
+
+environment:
+  DOCKER_LOGIN: hikari-ai
+
 workflows:
   build-and-publish-image:
     jobs:
@@ -10,11 +21,3 @@ workflows:
           registry: ghcr.io
           image: hikari-ai/jetson-packages-family
           tag: latest
-    contexts:
-      - secrets
-    branches:
-      only:
-        - master
-        - hugo-docs
-    environment:
-      DOCKER_LOGIN: hikari-ai
