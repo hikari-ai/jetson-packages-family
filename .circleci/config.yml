@@ -43,8 +43,7 @@ workflows:
   build-and-publish-image:
     jobs:
       - build-and-push:
-          contexts:
-            - secrets
+          context: secrets
 
   ##  build_all:
   ##    jobs:
