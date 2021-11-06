@@ -3,11 +3,10 @@
 BUILD_DIR := Dockerfile
 REGISTRY := ghcr.io
 GHCR_USERNAME := yqlbu
-IMAGE_NAME := hikariai-web
+IMAGE_NAME := jetson-packages-family
 IMAGE_TAG := latest
-DOMAIN_NAME := hikariai.net
+DOMAIN_NAME := jetson.hikariai.net
 ENV := latest
-SERVER_IP := 10.10.10.50
 
 # Modify tagging mechanism
 ifeq ($(ENV), dev)
