@@ -10,6 +10,9 @@ parameters:
   heroku_registry:
     type: string
     default: registry.heroku.com
+  heroku_release_type:
+    type: string
+    default: web
 
   image:
     type: string
@@ -20,7 +23,8 @@ parameters:
 
 jobs:
   build-and-push:
-    machine: true
+    docker:
+      - image: cimg/base:stable
     steps:
       - checkout
       - run:
@@ -36,15 +40,19 @@ jobs:
           command: |
             docker build -t base .
             docker tag base <<pipeline.parameters.ghcr_registry>>/<<pipeline.parameters.ghcr_username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
-            docker tag base <<pipeline.parameters.heroku_registry>>/<<pipeline.parameters.image>>/web
+            docker tag base <<pipeline.parameters.heroku_registry>>/<<pipeline.parameters.image>>/<<pipeline.parameters.heroku_release_type>>
       - run:
           name: Push Images
           command: |
             docker push <<pipeline.parameters.ghcr_registry>>/<<pipeline.parameters.ghcr_username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
-            docker push <<pipeline.parameters.heroku_registry>>/<<pipeline.parameters.image>>/web
+            docker push <<pipeline.parameters.heroku_registry>>/<<pipeline.parameters.image>>/<<pipeline.parameters.heroku_release_type>>
+      - run:
+          name: Deploy
+          command: |
+            apt install heroku
 
-workflows:
-  build-and-publish-image:
-    jobs:
-      - build-and-push:
-          context: secrets
+    workflows:
+      build-and-publish-image:
+        jobs:
+          - build-and-push:
+              context: secrets
