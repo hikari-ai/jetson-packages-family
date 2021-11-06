@@ -30,7 +30,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: docker login --username <<pipeline.parameters.username>> -p $DOCKER_PASSWORD
+          command: docker login ghcr.io --username <<pipeline.parameters.username>> -p $DOCKER_PASSWORD
           name: login to GitHub Container Registry
       - run: 
           name: build image
