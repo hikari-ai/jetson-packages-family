@@ -1,5 +1,8 @@
 version: 2.1
 
+contexts:
+  - secrets
+
 parameters:
   registry:
     type: string
@@ -30,19 +33,17 @@ jobs:
     steps:
       - checkout
       - run:
-          command: echo "$DOCKER_PASSWORD" | docker login --username <<parameters.username>> --password-stdin
+          command: echo "$DOCKER_PASSWORD" | docker login --username <<pipeline.parameters.username>> --password-stdin
           name: login to GitHub Container Registry
       - run: 
           name: build image
-          command: docker build -t <<parameters.registry>>/<<parameters.username>>/<<parameters.image>>:<<parameters.tag>>
+          command: docker build -t <<pipeline.parameters.registry>>/<<pipeline.parameters.username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>> .
       - run:
           name: publish image
-          command: docker push <<parameters.registry>>/<<parameters.username>>/<<parameters.image>>:<<parameters.tag>>
+          command: docker push <<pipeline.parameters.registry>>/<<pipeline.parameters.username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
 
 workflows:
   build-and-publish-image:
-    contexts:
-      - secrets
     jobs:
       - build-and-push
 
