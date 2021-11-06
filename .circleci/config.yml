@@ -22,10 +22,10 @@ parameters:
   ## build_master:
 jobs:
   build-and-push:
-    branches:
-      only:
-        - master
-        - hugo-docs
+    ##    branches:
+    ##      only:
+    ##        - master
+    ##        - hugo-docs
     machine: true
     steps:
       - checkout
