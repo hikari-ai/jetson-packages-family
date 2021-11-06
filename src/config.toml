@@ -1,0 +1,9 @@
+baseURL = "https://example.com/"
+title = "Compose Docs"
+theme = "compose"
+enableRobotsTXT = true
+enableGitInfo = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
