@@ -28,7 +28,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: 20.10.7
+          version: 20.10.6
           docker_layer_caching: false
       - run:
           name: Synchronize git submodule
@@ -73,6 +73,11 @@ workflows:
     jobs:
       - build-and-push:
           context: secrets
+          filters:
+            branches:
+              only:
+                - develop
+
       - release:
           requires:
             - build-and-push
