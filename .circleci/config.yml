@@ -30,9 +30,12 @@ jobs:
     steps:
       - checkout
       - run:
-          command: docker login ghcr.io --username <<pipeline.parameters.username>> -p $DOCKER_PASSWORD
+          name: synchronize git submodule
+          command: git submodule update --init --recursive
+      - run:
           name: login to GitHub Container Registry
-      - run: 
+          command: docker login ghcr.io --username <<pipeline.parameters.username>> -p $DOCKER_PASSWORD
+      - run:
           name: build image
           command: docker build -t <<pipeline.parameters.registry>>/<<pipeline.parameters.username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>> .
       - run:
