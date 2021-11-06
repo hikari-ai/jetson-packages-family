@@ -1,9 +1,8 @@
 baseURL = "https://example.com/"
 title = "Compose Docs"
-enableRobotsTXT = true
 theme = "compose"
+enableRobotsTXT = true
 enableGitInfo = true
-
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [outputs]
