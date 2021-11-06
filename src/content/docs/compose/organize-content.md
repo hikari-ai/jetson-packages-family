@@ -1,7 +1,7 @@
-+++
-title = "Content organization"
-weight = 4
-+++
+---
+title: "Content organization"
+weight: 4
+---
 
 This theme is primarily meant for documentation.
 
@@ -9,7 +9,7 @@ This theme is primarily meant for documentation.
 
 All your documentation content should be authored within the `docs` directory.
 
-Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages. Beneath each link, there will be a collapsible list of __table of contents'__ links. These nested lists will unfold automatically on the active/current page.
+Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages. Beneath each link, there will be a collapsible list of **table of contents'** links. These nested lists will unfold automatically on the active/current page.
 
 #### Home Page
 

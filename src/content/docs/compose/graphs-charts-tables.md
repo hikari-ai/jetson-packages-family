@@ -28,35 +28,36 @@ Firstly define the data you want to display from the front matter:
 
 ```markdown
 # from front matter
+
 ...
 [dataset1] # this key will in the chart shortcode
-  fileLink = "content/projects.csv" # path to where csv is stored
-  colors = ["#627c62", "#11819b", "#ef7f1a", "#4e1154"] # chart colors
-  columnTitles = ["Section", "Status", "Author"]
-  charts = ["bar", "doughnut", "pie", "table"]
-  baseChartOn = 3 # number of column the chart(s) and graph should be drawn from
-  piechart = true
-  doughnutchart = true
-  bargraph = true
-  title = "Projects"
-  table = true # show table listing the chart data
+fileLink = "content/projects.csv" # path to where csv is stored
+colors = ["#627c62", "#11819b", "#ef7f1a", "#4e1154"] # chart colors
+columnTitles = ["Section", "Status", "Author"]
+charts = ["bar", "doughnut", "pie", "table"]
+baseChartOn = 3 # number of column the chart(s) and graph should be drawn from
+piechart = true
+doughnutchart = true
+bargraph = true
+title = "Projects"
+table = true # show table listing the chart data
 
 // from page content
 ...
 {{</* grid " mt-2" */>}}
-  {{</* chart "dataset1" */>}}
+{{</* chart "dataset1" */>}}
 {{</* /grid */>}}
 ...
 ```
 
 {{< grid "3 mt-2 mb-2" >}}
-  {{< chart "dataset1" "pie,doughnut,bar" >}}
+{{< chart "dataset1" "pie,doughnut,bar" >}}
 {{< /grid >}}
 
-#### __Show Table at once__
+#### **Show Table at once**
 
 {{< block >}}
-  {{< chart "dataset1" "table" >}}
+{{< chart "dataset1" "table" >}}
 {{< /block >}}
 
 Firstly define the data you want to display from the front matter:
@@ -81,17 +82,17 @@ Firstly define the data you want to display from the front matter:
 // from page content
 ...
 {{</* grid " mt-2" */>}}
-  {{</* chart "dataset2" */>}}
+{{</* chart "dataset2" */>}}
 {{</* /grid */>}}
 ...
 ```
 
 {{< grid "3 mt-2 mb-2" >}}
-  {{< chart "dataset2" "pie,doughnut" "1" >}}
+{{< chart "dataset2" "pie,doughnut" "1" >}}
 {{< /grid >}}
 
 #### Show table only
 
 {{< grid "3" >}}
-  {{< chart "dataset2" "table" >}}
+{{< chart "dataset2" "table" >}}
 {{< /grid >}}

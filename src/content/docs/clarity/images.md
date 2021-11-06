@@ -1,7 +1,7 @@
-+++
-title = "Manipulating Images"
-weight = 15
-+++
+---
+title: "Manipulating Images"
+weight: 15
+---
 
 ## Images
 
@@ -31,6 +31,7 @@ To make a blog image inline, append `:inline` to its alt text. Typically, inline
 
 ```markdown
 <!-- some image without alt text -->
+
 ![:inline](someImageUrl)
 
 <!-- some image with alt text -->
@@ -48,6 +49,7 @@ To align a blog image to the left, append `:left` to its alt text. Article text 
 
 ```markdown
 <!-- some image without alt text -->
+
 ![:left](someImageUrl)
 
 <!-- some image with alt text -->
@@ -63,6 +65,7 @@ To add a class image to the left, append `::<classname>` to its alt text. You ca
 
 ```markdown
 <!-- some image without alt text -->
+
 ![::img-medium](someImageUrl)
 
 <!-- some image with alt text -->
@@ -75,9 +78,8 @@ To add a class image to the left, append `::<classname>` to its alt text. You ca
 Blog articles can specify a thumbnail image which will be displayed to the left of the card on the home page. Thumbnails should be square (height:width ratio of `1:1`) and a suggested dimension of 150 x 150 pixels. They will be specified using a frontmatter variable as follows:
 
 ```yaml
-...
+---
 thumbnail: "images/2020-04/capv-overview/thumbnail.jpg"
-...
 ```
 
 The thumbnail image will take precedence on opengraph share tags if the [shareImage](#share-image) parameter is not specified.
@@ -87,9 +89,8 @@ The thumbnail image will take precedence on opengraph share tags if the [shareIm
 Each article can specify an image that appears at the top of the content. When sharing the blog article on social media, if a thumnail is not specified, the featured image will be used as a fallback on opengraph share tags.
 
 ```yaml
-...
+---
 featureImage: "images/2020-04/capv-overview/featured.jpg"
-...
 ```
 
 ### Share Image
@@ -97,9 +98,8 @@ featureImage: "images/2020-04/capv-overview/featured.jpg"
 Sometimes, you want to explicitly set the image that will be used in the preview when you share an article on social media. You can do so in the front matter.
 
 ```yaml
-...
+---
 shareImage = "images/theImageToBeUsedOnShare.png"
-...
 ```
 
 Note that if a share image is not specified, the order of precedence that will be used to determine which image applies is `thumbnail` => `featureImage` => `fallbackOgImage`. When sharing a link to the home page address of the site (as opposed to a specific article), the `fallbackOgImage` will be used.
@@ -109,9 +109,8 @@ Note that if a share image is not specified, the order of precedence that will b
 You can left align or center your site's logo.
 
 ```yaml
-...
+---
 centerLogo = true # Change to false to align left
-...
 ```
 
 If no logo is specified, the title of the site will appear in its place.

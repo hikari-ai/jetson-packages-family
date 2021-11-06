@@ -1,6 +1,6 @@
-+++
-title = "Syntax Highlighting"
-+++
+---
+title: "Syntax Highlighting"
+---
 
 ### Code
 
@@ -10,9 +10,8 @@ Choose whether to display line numbers within a code block globally with the par
 
 ```yaml
 [params]
-...
+---
 codeLineNumbers = true # Shows line numbers for all code blocks globally.
-...
 ```
 
 #### Limit code block height
@@ -21,9 +20,8 @@ You can globally control the number of lines which are displayed by default for 
 
 ```yaml
 [params]
-...
+---
 codeMaxLines = 10 # Maximum number of lines to be shown by default across all articles.
-...
 ```
 
 > If the value already exists, change it to the desired number. This will apply globally.
@@ -31,9 +29,9 @@ codeMaxLines = 10 # Maximum number of lines to be shown by default across all ar
 If you need more granular control, this parameter can be overridden at the blog article level. Add the same value to your article frontmatter as follows:
 
 ```yaml
-...
+
+---
 codeMaxLines = 15 # Maximum number of lines to be shown in code blocks in this blog post.
-...
 ```
 
 If `codeMaxLines` is specified both in `config.toml` and in the article frontmatter, the value specified in the article frontmatter will apply to the given article. In the above example, the global default is `10` and yet the article value is `15` so code blocks in this article will auto-collapse after 15 lines.

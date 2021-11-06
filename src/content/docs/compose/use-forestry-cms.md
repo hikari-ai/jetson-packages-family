@@ -1,8 +1,8 @@
-+++
-title = "Use forestry CMS"
-description = ""
-weight = 3
-+++
+---
+title: "Use forestry CMS"
+description: ""
+weight: 3
+---
 
 Do you prefer managing your site using a CMS? Or would you like to make it easier for someone (a non-techie, perhaps) in your team to make edits easily? If interested, follow along. Else, skip to the [next section](../overview/)
 
@@ -10,7 +10,7 @@ Let's sync your site with forestry CMS.
 
 ## Prerequisites !!
 
-Obviously you  ought to have __a github account__. This is where your website source will live. Basically, forestry will read from github and write (commmit) to your github repo.
+Obviously you ought to have **a github account**. This is where your website source will live. Basically, forestry will read from github and write (commmit) to your github repo.
 
 {{< tip "warning" >}}
 Gitlab or bitbucket will work too. Just check their [implementation here](https://forestry.io/docs/git-sync/gitlab/). Happy fishing.
@@ -34,7 +34,7 @@ First we will fork [this theme's](https://github.com/onweru/compose) template.
 The exampleSite already comes with prefilled default forestry settings. If you set up your site using [option 2](../getting-started/#option-2-recommended), look for a file `.forestry/settings.yml` and remove all `exampleSite/` strings from it.
 {{< /tip >}}
 
-Go to your [forestry](https://bit.ly/forestry-account)  account and click on `import your site now`.
+Go to your [forestry](https://bit.ly/forestry-account) account and click on `import your site now`.
 
 1. Choose `hugo`
 2. `github` or `gitlab`. wherever your repo is at.

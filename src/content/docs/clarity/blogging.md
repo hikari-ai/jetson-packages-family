@@ -1,6 +1,6 @@
-+++
-title="Blogging"
-+++
+---
+title: "Blogging"
+---
 
 ### Blog directory
 
@@ -8,9 +8,8 @@ Edit the `config.toml` file and change the `mainSections` key. Values will be di
 
 ```yaml
 [params]
-...
+---
 mainSections = ["posts", "docs", "blogs"]
-...
 ```
 
 For more info, see the [Hugo docs](https://gohugo.io/functions/where/#mainsections).
@@ -21,9 +20,8 @@ The navigation menu when mobile browsing can be configured in `config.toml` to o
 
 ```yaml
 [params]
-...
+---
 mobileNavigation = "left" # Mobile nav menu will open to the left of the screen.
-...
 ```
 
 ### Tags and Taxonomies
@@ -34,9 +32,8 @@ The number of tags and taxonomies (including categories) that should be shown ca
 
 ```yaml
 [params]
-...
+---
 numberOfTagsShown = 14 # Applies for all other default & custom taxonomies. e.g categories, brands see https://gohugo.io/content-management/taxonomies#what-is-a-taxonomy
-...
 ```
 
 #### Number of tags example
