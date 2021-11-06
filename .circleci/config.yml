@@ -13,6 +13,7 @@ contexts:
 
 environment:
   DOCKER_LOGIN: hikari-ai
+  DOCKER_PASSWORD: $DOCKER_PASSWORD
 
 workflows:
   build-and-publish-image:
