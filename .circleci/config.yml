@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  docker: circleci/docker@2.0.0
-
 branches:
   only:
     - master
@@ -11,14 +8,14 @@ branches:
 contexts:
   - secrets
 
-workflows:
-  build-and-publish-image:
-    jobs:
-      - docker/publish:
-          registry: ghcr.io
-          image: hikari-ai/jetson-packages-family
-          tag: latest
+environment:
+  DOCKER_LOGIN: hikari-ai
 
-    environment:
-      DOCKER_LOGIN: hikari-ai
-      DOCKER_PASSWORD: $DOCKER_PASSWORD
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: echo "$DOCKER_PASSWORD" | docker login ghcr.io -u $DOCKER_LOGIN --password-stdin
+      - run: docker build -t hikari-ai/jetson-packages-family .
+      - run: docker push hikari-ai/jetson-packages-family
