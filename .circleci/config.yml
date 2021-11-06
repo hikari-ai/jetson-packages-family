@@ -1,21 +1,70 @@
 version: 2.1
 
-branches:
-  only:
-    - master
-    - hugo-docs
+parameters:
+  registry:
+    type: string
+    default: ghcr.io
+  username:
+    type: string
+    default: hikari-ai
+  extra_build_args:
+    type: string
+    default: ""
+  image:
+    type: string
+    default: jetson-packages-family
+  tag:
+    type: string
+    default: latest
 
-contexts:
-  - secrets
-
-environment:
-  DOCKER_LOGIN: hikari-ai
-
+  ## build_all:
+  ## build_dev:
+  ## build_master:
 jobs:
-  build:
+  build-and-push:
+    branches:
+      only:
+        - master
+        - hugo-docs
     machine: true
     steps:
       - checkout
-      - run: echo "$DOCKER_PASSWORD" | docker login ghcr.io -u $DOCKER_LOGIN --password-stdin
-      - run: docker build -t hikari-ai/jetson-packages-family .
-      - run: docker push hikari-ai/jetson-packages-family
+      - name: login to GitHub Container Registry
+        run: |
+         echo "$DOCKER_PASSWORD" | docker login --username <<parameters.username>> --password-stdin
+      - name: build image
+        run: docker build -t <<parameters.registry>>/<<parameters.username>>/<<parameters.image>>:<<parameters.tag>>
+      - name: publish image
+        run: docker push <<parameters.registry>>/<<parameters.username>>/<<parameters.image>>:<<parameters.tag>>
+
+workflows:
+  build-and-publish-image:
+    contexts:
+      - secrets
+    jobs:
+      - build-and-push
+
+  ##  build_all:
+  ##    jobs:
+  ##      - build_all:
+  ##          filters:
+  ##            branches:
+  ##              ignore:
+  ##                - develop
+  ##                - master
+  ##
+  ##  build_dev:
+  ##    jobs:
+  ##      - build_dev:
+  ##          filters:
+  ##            branches:
+  ##              only:
+  ##                - develop
+  ##
+  ##  build_master:
+  ##    jobs:
+  ##      - build_master:
+  ##          filters:
+  ##            branches:
+  ##              only:
+  ##                - master
