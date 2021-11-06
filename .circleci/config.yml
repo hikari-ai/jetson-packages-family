@@ -33,7 +33,8 @@ jobs:
     steps:
       - checkout
       - run:
-          command: echo "$DOCKER_PASSWORD" | docker login --username <<pipeline.parameters.username>> --password-stdin
+          command: |
+            echo "$DOCKER_PASSWORD" | docker login --username <<pipeline.parameters.username>> --password-stdin
           name: login to GitHub Container Registry
       - run: 
           name: build image
