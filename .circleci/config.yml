@@ -3,65 +3,18 @@ version: 2.1
 orbs:
   docker: circleci/docker@2.0.0
 
-parameters:
-  registry:
-    type: string
-    default: ghcr.io
-  docker-username:
-    type: string
-    default: hikari-ai
-  extra_build_args:
-    type: string
-    default: ""
-  image:
-    type: string
-    default: jetson-packages-family
-  tag:
-    type: string
-    default: latest
-
-jobs:
-  build-and-push:
+workflows:
+  build-and-publish-image:
+    jobs:
+      - docker/publish:
+          registry: ghcr.io
+          image: hikari-ai/jetson-packages-family
+          tag: latest
+    contexts:
+      - secrets
     branches:
       only:
         - master
         - hugo-docs
-  steps:
-    - docker/publish
-
-  ## build_all:
-  ## build_dev:
-  ## build_master:
-
-workflows:
-  build-and-publish-image:
-    jobs:
-      - build-and-push
-    contexts:
-      - secrets
-
-
-  ##  build_all:
-  ##    jobs:
-  ##      - build_all:
-  ##          filters:
-  ##            branches:
-  ##              ignore:
-  ##                - develop
-  ##                - master
-  ##
-  ##  build_dev:
-  ##    jobs:
-  ##      - build_dev:
-  ##          filters:
-  ##            branches:
-  ##              only:
-  ##                - develop
-  ##
-  ##  build_master:
-  ##    jobs:
-  ##      - build_master:
-  ##          filters:
-  ##            branches:
-  ##              only:
-  ##                - master
+    environment:
+      DOCKER_LOGIN: hikari-ai
