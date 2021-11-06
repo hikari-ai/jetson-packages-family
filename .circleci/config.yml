@@ -11,10 +11,6 @@ branches:
 contexts:
   - secrets
 
-environment:
-  DOCKER_LOGIN: hikari-ai
-  DOCKER_PASSWORD: $DOCKER_PASSWORD
-
 workflows:
   build-and-publish-image:
     jobs:
@@ -22,3 +18,7 @@ workflows:
           registry: ghcr.io
           image: hikari-ai/jetson-packages-family
           tag: latest
+
+    environment:
+      DOCKER_LOGIN: hikari-ai
+      DOCKER_PASSWORD: $DOCKER_PASSWORD
