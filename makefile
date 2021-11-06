@@ -2,7 +2,7 @@
 
 BUILD_DIR := Dockerfile
 REGISTRY := ghcr.io
-GHCR_USERNAME := yqlbu
+GHCR_USERNAME := hikari-ai
 IMAGE_NAME := jetson-packages-family
 IMAGE_TAG := latest
 DOMAIN_NAME := jetson.hikariai.net
