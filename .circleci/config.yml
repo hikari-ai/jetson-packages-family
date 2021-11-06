@@ -28,7 +28,6 @@ jobs:
         - hugo-docs
   steps:
     - docker/publish
-        image: <<parameters.registry>>/<<parameters.docker-username>>/<<parameters.image>>:<<parameters.tag>>
 
   ## build_all:
   ## build_dev:
