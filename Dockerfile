@@ -15,26 +15,22 @@
 
 FROM alpine:latest as build
 
-RUN apk add hugo
-RUN hugo version
-
 USER root
 
 WORKDIR /app
-COPY src/ ./
 
+COPY src .
+
+RUN apk add hugo
+RUN hugo version
 RUN hugo
 
 # --- Deployment Stage --- #
 
-FROM nginx:stable-alpine
+FROM caddy
 
-COPY --from=build /app/public /usr/share/nginx/html
+ENV PORT 8080
 
-RUN chmod -R 0777 /usr/share/nginx/html
+COPY --from=build /app/public /srv
 
-COPY src/nginx.conf /etc/nginx/conf.d/default.conf
-
-WORKDIR /usr/share/nginx/html
-
-CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
+CMD caddy file-server -listen :"$PORT"
