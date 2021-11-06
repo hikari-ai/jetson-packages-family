@@ -1,8 +1,5 @@
 version: 2.1
 
-contexts:
-  - secrets
-
 parameters:
   registry:
     type: string
@@ -45,7 +42,9 @@ jobs:
 workflows:
   build-and-publish-image:
     jobs:
-      - build-and-push
+      - build-and-push:
+          contexts:
+            - secrets
 
   ##  build_all:
   ##    jobs:
