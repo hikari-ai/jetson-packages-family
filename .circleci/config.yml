@@ -29,13 +29,15 @@ jobs:
     machine: true
     steps:
       - checkout
-      - name: login to GitHub Container Registry
-        run: |
-         echo "$DOCKER_PASSWORD" | docker login --username <<parameters.username>> --password-stdin
-      - name: build image
-        run: docker build -t <<parameters.registry>>/<<parameters.username>>/<<parameters.image>>:<<parameters.tag>>
-      - name: publish image
-        run: docker push <<parameters.registry>>/<<parameters.username>>/<<parameters.image>>:<<parameters.tag>>
+      - run:
+          command: echo "$DOCKER_PASSWORD" | docker login --username <<parameters.username>> --password-stdin
+          name: login to GitHub Container Registry
+      - run: 
+          name: build image
+          command: docker build -t <<parameters.registry>>/<<parameters.username>>/<<parameters.image>>:<<parameters.tag>>
+      - run:
+          name: publish image
+          command: docker push <<parameters.registry>>/<<parameters.username>>/<<parameters.image>>:<<parameters.tag>>
 
 workflows:
   build-and-publish-image:
