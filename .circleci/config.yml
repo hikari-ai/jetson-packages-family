@@ -1,40 +1,46 @@
 version: 2.1
 
 orbs:
-  kaniko-publish: glenjamin/kaniko-publish@0.0.1
+  docker: circleci/docker@2.0.0
 
 parameters:
-  DOCKER_LOGIN:
   registry:
     type: string
     default: ghcr.io
+  docker-username:
+    type: string
+    default: hikari-ai
   extra_build_args:
     type: string
     default: ""
   image:
     type: string
-    default: hikari-ai/jetson-packages-family
+    default: jetson-packages-family
   tag:
     type: string
     default: latest
 
 jobs:
-  kaniko-build-and-publish:
+  build-and-push:
     branches:
       only:
         - master
         - hugo-docs
   steps:
-    - kaniko-publish/build_and_push
+    - docker/publish
+        image: <<parameters.registry>>/<<parameters.docker-username>>/<<parameters.image>>:<<parameters.tag>>
 
   ## build_all:
   ## build_dev:
   ## build_master:
 
 workflows:
-  build-and-publish:
+  build-and-publish-image:
     jobs:
-      - kaniko-build-and-push
+      - build-and-push
+          context:
+            - secrets
+
 
   ##  build_all:
   ##    jobs:
