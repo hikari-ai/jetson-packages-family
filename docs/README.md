@@ -9,7 +9,7 @@
 
 CopyRight 2020-2021 Hikari AI. All rights reserved.
 
-Maintainer: Kevin Yu (@yqlbu), Shi Kun (@kunish)
+Maintainer: [ Kevin Yu (@yqlbu) ](https://github.com/yqlbu), [ Shi Kun (@kunish) ](https://github.com/kunish)
 
 This repo aims to give you clear instructions on how to install packages on AArch64(ARM) Platform, especially in Jetson family. All the packages have been tested on Jetson AGX Xavier and Jetson Nano.
 
