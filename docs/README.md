@@ -1,7 +1,7 @@
 # Jetson Packages Family
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/drone/build/hikari-ai/jetson-packages-family?logo=drone&server=https%3A%2F%2Fdrone.thegeeklab.de)]
+[![Build Status](https://img.shields.io/circleci/build/github/hikari-ai/jetson-packages-family/master?style=plastic&token=559d548bf308f0a37d34c554e3e515102491d595)]
 ![Device](<https://img.shields.io/static/v1?label=Device&message=Jetson(ARMv8)&color=orange>)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyqlbu%2Fjetson-packages-family&count_bg=%23723DC8&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Lines](https://img.shields.io/tokei/lines/github/hikari-ai/jetson-packages-family)](https://img.shields.io/tokei/lines/github/hikari-ai/jetson-packages-family)
@@ -58,7 +58,7 @@ This repo uses [CircleCI](https://circleci.com/) to automate the build and deplo
 
 ## Contributors
 
-Special thanks goes to all [ contributors ](https://github.com/yqlbu/jetson-packages-family/graphs/contributors). If you would like to contribute, please see the [ instructions ](https://github.com/hikari-ai/jetson-packages-family/blob/master/docs/contribute.md).
+Special thanks goes to all [ contributors ](https://github.com/yqlbu/jetson-packages-family/graphs/contributors). If you would like to contribute, please see the [instructions](https://github.com/hikari-ai/jetson-packages-family/blob/master/docs/contribute.md).
 
 [ Jetson Packages Family ](https://jetson.hikariai.net) is inspired and introduced in 2020. It is now maintained by [ Kevin Yu (@yqlbu) ](https://github.com/yqlbu) and [ Shi Kun (@kunish) ](https://github.com/kunish).
 
