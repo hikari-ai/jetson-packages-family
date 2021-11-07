@@ -1,0 +1,6 @@
+/* Global customization */
+
+:root,
+:root[color-mode="dark"] {
+  --header-background: #88d8b0;
+}

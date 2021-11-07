@@ -1,5 +1,5 @@
 baseURL = "/"
-title = "Geekdocs"
+title = "Jetson Packages Family"
 theme = "hugo-geekdoc"
 
 pluralizeListTitles = false
@@ -8,6 +8,7 @@ pluralizeListTitles = false
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 disablePathToLower = true
+enableGitInfo = true
 
 # Required if you want to render robots.txt template
 enableRobotsTXT = true
@@ -23,3 +24,12 @@ enableRobotsTXT = true
 
 [taxonomies]
    tag = "tags"
+
+[params]
+  geekdocLogo = "images/logo.png"
+  geekdocNextPrev = true
+  geekdocRepo = "https://github.com/hikari-ai/jetson-packages-family"
+  geekdocAnchorCopy = true
+  geekdocImageLazyLoading = true
+  geekdocTagsToMenu = true
+  geekdocDarkModeDim = true
