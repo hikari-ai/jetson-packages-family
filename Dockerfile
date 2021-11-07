@@ -24,11 +24,11 @@ FROM alpine:latest as build
 
 USER root
 
-WORKDIR /app
+RUN apk add hugo
 
+WORKDIR /app
 COPY src .
 
-RUN apk add hugo
 RUN hugo version
 RUN hugo
 
