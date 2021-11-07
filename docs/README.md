@@ -18,10 +18,6 @@ Google Cloud: Cloud Computing Serviceshttps://cloud.google.com), running as a mi
 
 Feel free to check out my personal site [hikariai.net](https://hikariai.net) for more cutting-edge sharings about `Microservices` and `Edge Computing`
 
-## How To Contribute
-
-If you want to contribute to a project and make it better, your help is very welcome. Contributing is also a great way to learn more about social coding on Github, new technologies and and their ecosystems and how to make constructive, helpful bug reports, feature requests and the noblest of all contributions: a good, clean pull request. [READ MORE](https://github.com/hikari-ai/jetson-packages-family/blob/master/docs/contribute.md)
-
 ## Pre-commit
 
 This repo uses [pre-commit](https://github.com/pre-commit/pre-commit) to manage and maintain multi-language preo-commit hooks.
@@ -59,6 +55,12 @@ This repo uses [CircleCI](https://circleci.com/) to automate the build and deplo
 - `Archiconda3` to [v0.2.3](https://github.com/Archiconda/build-tools/releases/tag/0.2.3)
 
 </p></details>
+
+## Contributors
+
+Special thanks goes to all [ contributors ](https://github.com/yqlbu/jetson-packages-family/graphs/contributors). If you would like to contribute, please see the [ instructions ](https://github.com/hikari-ai/jetson-packages-family/blob/master/docs/contribute.md).
+
+`Jetson Packages Family` is inspired and introduced in 2020. It is now maintained by Kevin Yu (@yqlbu) and Shi Kun (@kunish).
 
 ## License
 
