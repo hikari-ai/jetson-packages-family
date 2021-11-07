@@ -1,7 +1,7 @@
 # Jetson Packages Family
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/circleci/build/github/hikari-ai/jetson-packages-family/master?style=plastic&token=559d548bf308f0a37d34c554e3e515102491d595)]
+[![Build Status](https://img.shields.io/circleci/build/github/hikari-ai/jetson-packages-family/master?style=plastic&token=559d548bf308f0a37d34c554e3e515102491d595)](https://app.circleci.com/pipelines/github/hikari-ai)
 ![Device](<https://img.shields.io/static/v1?label=Device&message=Jetson(ARMv8)&color=orange>)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyqlbu%2Fjetson-packages-family&count_bg=%23723DC8&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Lines](https://img.shields.io/tokei/lines/github/hikari-ai/jetson-packages-family)](https://img.shields.io/tokei/lines/github/hikari-ai/jetson-packages-family)
