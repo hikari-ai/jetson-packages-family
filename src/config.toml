@@ -1,5 +1,5 @@
 baseURL = "/"
-title = "Jetson Packages Family"
+title = "HikariAI Forum"
 theme = "hugo-geekdoc"
 
 pluralizeListTitles = false
@@ -8,7 +8,6 @@ pluralizeListTitles = false
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 disablePathToLower = true
-enableGitInfo = true
 
 # Required if you want to render robots.txt template
 enableRobotsTXT = true
