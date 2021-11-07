@@ -22,7 +22,7 @@ parameters:
     default: latest
 
 jobs:
-  build-and-push:
+  staging-build-and-push:
     docker:
       - image: cimg/base:stable
     steps:
@@ -50,7 +50,7 @@ jobs:
             docker push <<pipeline.parameters.ghcr_registry>>/<<pipeline.parameters.ghcr_username>>/<<pipeline.parameters.image>>:<<pipeline.parameters.tag>>
             docker push <<pipeline.parameters.heroku_registry>>/<<pipeline.parameters.image>>/<<pipeline.parameters.heroku_release_type>>
 
-  release:
+  staging-release:
     docker:
       - image: alpine
     steps:
@@ -69,16 +69,30 @@ jobs:
             heroku container:release <<pipeline.parameters.heroku_release_type>> -a <<pipeline.parameters.image>>
 
 workflows:
-  build-and-publish-image:
+  staging-build-release:
     jobs:
-      - build-and-push:
+      - staging-build-and-push:
           context: secrets
           filters:
             branches:
               only:
                 - develop
 
-      - release:
+      - staging-release:
           requires:
-            - build-and-push
+            - staging-build-and-push
           context: secrets
+
+  # prod-build-release:
+  #   jobs:
+  #     - prod-build-and-push:
+  #         context: secrets
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #
+  #     - prod-release:
+  #         requires:
+  #           - prod-build-and-push
+  #         context: secrets
