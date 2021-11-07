@@ -17,11 +17,15 @@ The main site (https://jetson.hikariai.net) is hosted on `Google Cloud Platform`
 
 Feel free to check out my personal site [hikariai.net](https://hikariai.net) for more cutting-edge sharings about `Microservices` and `Edge Computing`
 
+## How To Contribute
+
+If you want to contribute to a project and make it better, your help is very welcome. Contributing is also a great way to learn more about social coding on Github, new technologies and and their ecosystems and how to make constructive, helpful bug reports, feature requests and the noblest of all contributions: a good, clean pull request. [READ MORE](https://github.com/hikari-ai/jetson-packages-family/docs/contribute.md)
+
 ## Pre-commit
 
 This repo uses [pre-commit](https://github.com/pre-commit/pre-commit) to manage and maintain multi-language preo-commit hooks.
 
-## CI
+## Automation
 
 This repo uses [CircleCI](https://circleci.com/) to automate the build and deployment process.
 
