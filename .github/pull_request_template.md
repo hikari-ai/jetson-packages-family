@@ -12,6 +12,12 @@ _Add more context to describe the changes_
 
 ### References
 
+- Link #
+
 ### Checks
 
 - [ ] Already tested changes in `staging` environment
+
+### Notes
+
+- _Some awesome notes_
