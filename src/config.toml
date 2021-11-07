@@ -1,9 +1,3 @@
-baseURL = "/"
-title = "Compose Docs"
-theme = "compose"
-enableRobotsTXT = true
-enableGitInfo = false
-disableKinds = ["taxonomy", "taxonomyTerm"]
-
-[outputs]
-home = ["HTML", "RSS", "JSON"]
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
