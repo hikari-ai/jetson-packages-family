@@ -13,7 +13,8 @@ Maintainer: Kevin Yu (@yqlbu), Shi Kun (@kunish)
 
 This repo aims to give you clear instructions on how to install packages on AArch64(ARM) Platform, especially in Jetson family. All the packages have been tested on Jetson AGX Xavier and Jetson Nano.
 
-The main site (https://jetson.hikariai.net) is hosted on `Google Cloud Platform`, running as a microservice with `Cloud Run`, a serverless container solution offered by Google Cloud.
+The main site (https://jetson.hikariai.net) is hosted on [Google Cloud Platform](
+Google Cloud: Cloud Computing Serviceshttps://cloud.google.com), running as a microservice with [Cloud Run](https://cloud.google.com/run), a serverless container solution offered by Google Cloud.
 
 Feel free to check out my personal site [hikariai.net](https://hikariai.net) for more cutting-edge sharings about `Microservices` and `Edge Computing`
 
