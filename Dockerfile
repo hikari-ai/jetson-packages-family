@@ -36,8 +36,6 @@ RUN hugo
 
 FROM caddy
 
-ENV PORT 8080
-
 COPY --from=build /app/public /srv
 
 CMD caddy file-server -listen :"$PORT"
