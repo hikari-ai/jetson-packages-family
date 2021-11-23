@@ -31,9 +31,6 @@ jobs:
           version: 20.10.6
           docker_layer_caching: false
       - run:
-          name: Synchronize git submodule
-          command: git submodule update --init --recursive
-      - run:
           name: Login to Container Registries
           command: |
             docker login <<pipeline.parameters.ghcr_registry>> -u <<pipeline.parameters.ghcr_username>> -p $DOCKER_PASSWORD

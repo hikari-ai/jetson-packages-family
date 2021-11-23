@@ -1,34 +1,54 @@
-+++
-title = "Compose"
-[data]
-baseChartOn = 3
-colors = ["#627c62", "#11819b", "#ef7f1a", "#4e1154"]
-columnTitles = ["Section", "Status", "Author"]
-fileLink = "content/projects.csv"
-title = "Projects"
+---
+title: Welcome to the documentation
+description: Jetson Packages Family is a simple Hugo theme for documentations. It is intentionally designed as a fast and lean theme and may not fit the requirements of complex projects. If a more feature-complete theme is required there are a lot of got alternatives out there.
+geekdocNav: false
+geekdocAlign: center
+geekdocAnchor: false
+---
 
-+++
+<!-- markdownlint-restore -->
 
-{{< block "grid-2" >}}
-{{< column >}}
+Jetson Packages Family is a simple Hugo theme for documentations. It is intentionally designed as a fast and lean theme and may not fit the requirements of complex projects. If a more feature-complete theme is required there are a lot of got alternatives out there.
 
-# Compose your Docs with **Ease**.
 
-Compose is a lean `Hugo` domentation theme, inspired by [forestry.io](https://forestry.io/docs/welcome/).
+## Feature overview
 
-{{< tip "warning" >}}
-Feel free to open a [PR](https://github.com/onweru/compose/pulls), raise an [issue](https://github.com/onweru/compose/issues/new/choose "Open a Github Issue")(s) or request new feature(s). {{< /tip >}}
+{{< columns >}}
 
-{{< tip >}}
-You can generate diagrams, flowcharts, and piecharts from text in a similar manner as markdown using [mermaid](./docs/compose/mermaid/).
+### Clean and simple design
 
-Or, [generate graphs, charts](docs/compose/graphs-charts-tables/#show-a-pie-doughnut--bar-chart-at-once) and tables from a csv, ~~or a json~~ file.
-{{< /tip >}}
+Stay focused on exploring the content and don't get overwhelmed by a complex design.
 
-{{< button "docs/compose/" "Read the Docs" >}}{{< button "https://github.com/onweru/compose" "Download Theme" >}}
-{{< /column >}}
+<--->
 
-{{< column >}}
-![diy](/images/scribble.jpg)
-{{< /column >}}
-{{< /block >}}
+### Light and mobile-friendly
+
+The theme is powered by less than 1 MB and looks impressive on mobile devices as well as on a regular Desktop.
+
+<--->
+
+### Easy customization
+
+The look and feel can be easily customized by CSS custom properties (variables), features can be adjusted by Hugo parameters.
+
+{{< /columns >}}
+
+{{< columns >}}
+
+### Zero initial configuration
+
+Getting started in minutes. The theme is shipped with a default configuration and works out of the box.
+
+<--->
+
+### Handy shortcodes
+
+We included some (hopefully) useful custom shortcodes so you don't have to and can focus on writing amazing docs.
+
+<--->
+
+### Dark mode
+
+Powerful dark mode that detects your system preferences or can be controlled by a toggle switch.
+
+{{< /columns >}}
