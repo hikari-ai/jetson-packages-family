@@ -30,4 +30,4 @@ push: ghcr-login
 	@docker push ghcr.io/$(GHCR_USERNAME)/$(IMAGE_NAME):$(IMAGE_TAG)
 
 local-run:
-	@docker run -it --rm --name hugo-web -p 80:80 $(DOCKERHUB_USERNAME)/$(IMAGE_NAME):$(IMAGE_TAG)
+	@docker run -it --rm --name hugo-web -e PORT=80 -p 80:80 $(REGISTRY)/$(GHCR_USERNAME)/$(IMAGE_NAME):$(IMAGE_TAG)
